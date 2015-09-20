@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLite.API.IoT.Commanding", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controllers", "Controllers", "{09F563F5-0D8E-4930-87A7-F21E4C65BE91}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PluginBase", "PluginBase", "{F1D8FDCE-8FD9-4453-BBA4-5E4E9B5AAAB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NiteLite.Plugins.Base", "NiteLite.Plugins.Base\NiteLite.Plugins.Base.csproj", "{1151B21A-AE5F-4D40-AAB7-BA343E9FF998}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +27,16 @@ Global
 		{CBD71458-453C-47BE-8D25-339FD6456464}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBD71458-453C-47BE-8D25-339FD6456464}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBD71458-453C-47BE-8D25-339FD6456464}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1151B21A-AE5F-4D40-AAB7-BA343E9FF998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1151B21A-AE5F-4D40-AAB7-BA343E9FF998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1151B21A-AE5F-4D40-AAB7-BA343E9FF998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1151B21A-AE5F-4D40-AAB7-BA343E9FF998}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CBD71458-453C-47BE-8D25-339FD6456464} = {09F563F5-0D8E-4930-87A7-F21E4C65BE91}
+		{1151B21A-AE5F-4D40-AAB7-BA343E9FF998} = {F1D8FDCE-8FD9-4453-BBA4-5E4E9B5AAAB1}
 	EndGlobalSection
 EndGlobal

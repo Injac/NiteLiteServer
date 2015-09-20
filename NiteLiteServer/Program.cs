@@ -19,7 +19,7 @@ namespace NiteLiteServer
 
         static void Main(string[] args)
         {
-            Console.CancelKeyPress += Console_CancelKeyPress;
+          
 
             string adddress = default(string);
             int port = default(int);
@@ -44,6 +44,7 @@ namespace NiteLiteServer
                     Console.WriteLine("NiteLite Server Started!");
                     log.Warn("Server started");
                     Console.Read();
+                    log.Warn("Server stopped.");
                 }
 
 
@@ -52,11 +53,5 @@ namespace NiteLiteServer
             
         }
 
-        private static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
-        {
-                Console.WriteLine("Gracefully shutting down NiteLite....");
-           
-            _currentApp.Dispose();
-        }
     }
 }
