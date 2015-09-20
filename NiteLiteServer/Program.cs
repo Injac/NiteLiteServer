@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Owin.Hosting;
 using NiteLiteServer.Options;
@@ -43,8 +44,7 @@ namespace NiteLiteServer
                    
                     Console.WriteLine("NiteLite Server Started!");
                     log.Warn("Server started");
-                    Console.Read();
-                    log.Warn("Server stopped.");
+                    Thread.Sleep(Timeout.Infinite);
                 }
 
 

@@ -167,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyResolver\APIAssemblyResolver.cs" />
+    <Compile Include="BasicAuthMiddleware\BasicAuth.cs" />
     <Compile Include="Options\CommandLineOptions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
