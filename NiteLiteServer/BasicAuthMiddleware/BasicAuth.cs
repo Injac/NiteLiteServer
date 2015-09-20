@@ -68,7 +68,7 @@ namespace NiteLiteServer.BasicAuthMiddleware
 
         private bool ValidateUser(string username, string password)
         {
-            // do actual password validation here
+            //TODO: Add bcrypt-password provider
             return username != password;
         }
     }

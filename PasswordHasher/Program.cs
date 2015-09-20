@@ -24,7 +24,7 @@ namespace PasswordHasher
                 return 1;
             }
 
-            string salt = BCrypt.Net.BCrypt.GenerateSalt();
+            string salt = BCrypt.Net.BCrypt.GenerateSalt(4);
             string passHash = BCrypt.Net.BCrypt.HashPassword(pass1, salt);
 
             Console.WriteLine("Here is your password-hash: \n {0} \n",passHash);
