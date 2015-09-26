@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
@@ -8,6 +9,8 @@ using NiteLiteServer.AssemblyResolver;
 using Owin;
 using Pysco68.Owin.Logging.NLogAdapter;
 using JsonConfig;
+using Microsoft.Owin.FileSystems;
+using Microsoft.Owin.StaticFiles;
 
 [assembly: OwinStartup(typeof(NiteLiteServer.Startup))]
 
@@ -45,6 +48,24 @@ namespace NiteLiteServer
             if (Config.Global.EnableNLog)
             {
                 app.UseNLog();
+            }
+
+            if (Config.Global.EnableStaticFiles)
+            {
+
+                var root = string.Format("{0}/{1}", AppDomain.CurrentDomain.BaseDirectory, "www");
+
+                var fileServerOptions = new FileServerOptions()
+                {
+                    EnableDefaultFiles = true,
+                    EnableDirectoryBrowsing = false,
+                    RequestPath = new PathString("/www"),
+                    FileSystem = new PhysicalFileSystem(root)
+                };
+
+                app.UseFileServer(fileServerOptions);
+
+
             }
 
             app.UseWebApi(config);
