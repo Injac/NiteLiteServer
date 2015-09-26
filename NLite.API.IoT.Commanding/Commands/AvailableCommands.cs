@@ -13,7 +13,16 @@ namespace NiteLiteServer.Commands
         ActivateAlarm,
         CallDaddy,
         CallMummy,
-        CallEmergency
+        CallEmergency,
+        DimmClock,
+        UndimmClock,
+        PlaySong1,
+        PlaySong2,
+        PlaySong3,
+        PlaySong4,
+        StopSong,
+        PauseSong,
+        ResumeSong
     }
 
 
