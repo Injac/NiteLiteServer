@@ -53,7 +53,7 @@ namespace NiteLiteServer
             if (Config.Global.EnableStaticFiles)
             {
 
-                var root = string.Format("{0}/{1}", AppDomain.CurrentDomain.BaseDirectory, "www");
+                var root = $"{AppDomain.CurrentDomain.BaseDirectory}/{"www"}";
 
                 var fileServerOptions = new FileServerOptions()
                 {
