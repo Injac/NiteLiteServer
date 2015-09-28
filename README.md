@@ -1,3 +1,4 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/vwx47ij8p53leac8?svg=true)](https://ci.appveyor.com/project/Injac/niteliteserver) 
 
 # NiteLiteServer
 
