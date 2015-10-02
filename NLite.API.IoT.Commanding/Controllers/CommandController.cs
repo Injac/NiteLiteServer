@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -18,6 +19,7 @@ using JsonConfig;
 // ReSharper disable once CheckNamespace
 namespace NiteLiteServer.Controllers
 {
+    [Authorize]
     [RoutePrefix("commands")]
     public class CommandController:ApiController
     {
@@ -36,9 +38,36 @@ namespace NiteLiteServer.Controllers
 
         public CommandController()
         {
+
+            try
+            {
+
+                if (System.Environment.OSVersion.ToString().Contains("Unix"))
+                {
+
+                    _config = Config.ApplyFromDirectory(AssemblyDirectory + @"/commandconfig", null, false);
+                }
+                else
+                {
+                    _config = Config.ApplyFromDirectory(AssemblyDirectory + @"\commandconfig", null, false);
+                }
+
+               
+            }
+            catch (Exception ex)
+            {
+
+                Debug.WriteLine("Error in constructor");
+            }
             
-            _config = Config.ApplyFromDirectory(AssemblyDirectory + @"\config", null,false);
-            
+        }
+
+        [Route("testauth")]
+        [HttpGet]
+        public async Task<string> TestAuth()
+        {
+           
+            return await Task.Run<string>(() => "Authorized");
         }
 
         [Route("execute")]

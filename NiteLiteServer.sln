@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NiteLiteServer", "NiteLiteServer\NiteLiteServer.csproj", "{8F508E04-0352-4BC1-9343-B5596E8FA795}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CBD71458-453C-47BE-8D25-339FD6456464} = {CBD71458-453C-47BE-8D25-339FD6456464}
+		{3AD99E73-A954-467E-B354-8AC53B8E4933} = {3AD99E73-A954-467E-B354-8AC53B8E4933}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLite.API.IoT.Commanding", "NLite.API.IoT.Commanding\NLite.API.IoT.Commanding.csproj", "{CBD71458-453C-47BE-8D25-339FD6456464}"
 EndProject
@@ -16,6 +20,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{24160AEB-D8A6-4983-8E15-238ABAB78509}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordHasher", "PasswordHasher\PasswordHasher.csproj", "{91F5C98D-419C-46FD-B589-D0A0F81586C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManager", "UserManager\UserManager.csproj", "{3AD99E73-A954-467E-B354-8AC53B8E4933}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,10 @@ Global
 		{91F5C98D-419C-46FD-B589-D0A0F81586C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91F5C98D-419C-46FD-B589-D0A0F81586C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91F5C98D-419C-46FD-B589-D0A0F81586C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AD99E73-A954-467E-B354-8AC53B8E4933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AD99E73-A954-467E-B354-8AC53B8E4933}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AD99E73-A954-467E-B354-8AC53B8E4933}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AD99E73-A954-467E-B354-8AC53B8E4933}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,5 +57,6 @@ Global
 		{CBD71458-453C-47BE-8D25-339FD6456464} = {09F563F5-0D8E-4930-87A7-F21E4C65BE91}
 		{1151B21A-AE5F-4D40-AAB7-BA343E9FF998} = {F1D8FDCE-8FD9-4453-BBA4-5E4E9B5AAAB1}
 		{91F5C98D-419C-46FD-B589-D0A0F81586C9} = {24160AEB-D8A6-4983-8E15-238ABAB78509}
+		{3AD99E73-A954-467E-B354-8AC53B8E4933} = {24160AEB-D8A6-4983-8E15-238ABAB78509}
 	EndGlobalSection
 EndGlobal

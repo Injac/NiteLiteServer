@@ -11,6 +11,7 @@ using Pysco68.Owin.Logging.NLogAdapter;
 using JsonConfig;
 using Microsoft.Owin.FileSystems;
 using Microsoft.Owin.StaticFiles;
+using NiteLiteServer.BasicAuthMiddleware;
 
 [assembly: OwinStartup(typeof(NiteLiteServer.Startup))]
 
@@ -23,6 +24,12 @@ namespace NiteLiteServer
         public void Configuration(IAppBuilder app)
         {
             var config = new HttpConfiguration();
+
+            if (Config.Global.EnableBasicAuth)
+            {
+                app.Use(typeof(AuthenticationMiddleware));
+            }
+
 
             if (Config.Global.EnableAttributeRouting)
             {
@@ -62,6 +69,8 @@ namespace NiteLiteServer
                     RequestPath = new PathString("/www"),
                     FileSystem = new PhysicalFileSystem(root)
                 };
+
+
 
                 app.UseFileServer(fileServerOptions);
 
