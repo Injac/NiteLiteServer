@@ -1,5 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/vwx47ij8p53leac8?svg=true)](https://ci.appveyor.com/project/Injac/niteliteserver) 
 
+
 # NiteLiteServer
 
 Small, lightweight API server based on OWIN. This server is meant to run on smaller devices (like the Raspberry PI). The only thing that has to be supported is the latest release of Mono. 
@@ -16,7 +17,7 @@ Small, lightweight API server based on OWIN. This server is meant to run on smal
 * Each feature can be separately enabled or disabled using settings.conf
 * Configuration is JSON based
 * For each Web API Assembly, you simply add a separate configuration file for your settings
-* Basic Authentication support (not completed yet, but next on list) 
+* Basic Authentication support
 * BCrypt encryption for passwords
 * Database support to save sensor data quickly and efficiently under Windows and Linux (next on list as well)
 
@@ -53,13 +54,16 @@ The first of the two files, is used to represent the basic, or default settings 
 So, if you omit a specific setting in settings.conf, NiteLite will use the setting from default.conf. It's simple as that. Here is what the settings.conf file looks like:
 
 ```json
+# NiteLight Server configuration file
+# If you delete this file, all options will be set to true.
 {
       
     EnableNLog: true,
-    EnableCors: true,
+    EnableCors: false,
     EnableSignalR: true,
     EnableAttributeRouting: true,
-	EnableStaticFiles: true
+	EnableStaticFiles: true,
+	EnableBasicAuth: true
     
 }
 ```
@@ -89,6 +93,39 @@ This will open the basic bootstrap static page on your NiteLite server.
 
 Within your deployment root, you will find a folder called "www". Edit the files within this folder to customize index.html to suite your needs. The default document is always called "index.html". You can also replace this folder with your own HTML template or page, as long as the default html file is called "index.html".
 
+## Using Basic Authentication
+
+To use the basic-authentication middle-ware just set the BasicAuth parameter in settings.conf to true. It is mandatory that you add a new user first to the database, before you can use the [Authorization] attribute on your Web API controller. Within the root-directory of your deployment of NiteLite, you will find a tool named "UserManager.exe". Calling the tool without any options, will show you the following help-text:
+
+```bash
+Version 1.0.0.0 - written by Ilija Injac aka @awsomedevsigner
+
+Usage is (on Windows): UserManager.exe <options>
+Usage is (on Linxu): mono UserManager.exe <options>
+
+Options:
+        -u or username           The username to add
+        -n or newpassword (used when action is changeuser)
+        -c or passwordconfirm (used when action is changeuser)
+        -p or password           The password for the user. No restrictions here. At least 8 characters are good, combined with special characters.
+        -a or action             The action to perform: adduser,deleteuser,changepassword.
+
+
+----SAMPLES----
+
+---ADDING A NEW USER---
+UserManager.exe -u john -a adduser -p test -c test
+
+---CHANGING THE PASSWORD FOR AN EXISTING USER---
+UserManager.exe -u john -a changepassword -p test  -n test2 -c test2
+
+---DELETING AN EXISTING USER---
+UserManager.exe -u john -a deleteuser
+
+```
+Currently this tool does not support putting your user-database outside the Data-Directory within your deployment root. Maybe later this will be changed.
+
+After creating your user, you can use the Authorize attribute and authenticate your API calls using basic-authentication.
 
 
 ## License
